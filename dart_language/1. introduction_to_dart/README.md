@@ -114,3 +114,6 @@ Code is compiled to Javascript using dart2js or dartdevc tools included in Dart.
    5.  Extension methods
    6.  Async with Future and Streams
    7.  Isolates
+
+## Dart installation
+https://dart.dev/get-dart
