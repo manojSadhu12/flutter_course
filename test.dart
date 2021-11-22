@@ -1,6 +1,8 @@
-main() {
-  const animals = const ["Lion", "Tiger", "Elephant"];
+void sum(num num1, num num2, void callback(num result)) {
+  callback(num1 + num2);
+}
+Function greeting2 = (msg) => '!!! Hello $msg !!!';
 
-  animals.add("Monkey"); // Throws Unsupported operation: Cannot add to an unmodifiable list
-  animals = []; // Constant variables can't be assigned a value.
+void main() {
+  sum(100, 200, print);
 }

@@ -1,3 +1,4 @@
+<style>em{color: rgb(183, 157, 24) !important;}</style>
 # Datatype in Dart
 
 DataType is the format (like number, text etc...) of data that a variable holds.
@@ -8,11 +9,8 @@ The Dart language has special support for the following as they are built in dat
 * [Strings](#strings) (String)
 * [Booleans](#booleans) (bool)
 * [Lists](#lists) (List, also known as arrays)
-* Sets (Set)
-* Maps (Map)
-* Runes (Runes; often replaced by the characters API)
-* Symbols (Symbol)
-* The value null (Null)
+* [Sets](#set) (Set)
+* [Maps](#maps) (Map)
 
 Every variable in Dart refers to an object (an instance of a class) you can usually use constructors to initialize variables. 
 
@@ -219,7 +217,7 @@ In the above example we have seen how dart has inferred the type of list based o
   List<int> integers = [1, 2, 3, 4.8]; // This is an error as we cannot add a double in a List<int>
 ```
 
- ### Accessing elements of an List 
+ ### Accessing elements of an List
 
 The index of an List starts from 0 till listLength -1.
 
@@ -234,6 +232,14 @@ print(animals.length);
 print("value at 0: ${animals[0]}");
 print("value at 1: ${animals[1]}");
 print("value at Last element: ${animals[animals.length - 1]}");
+```
+
+### Updating elements of an List
+``` dart
+var animals = ["Lion", "Tiger", "Elephant"];
+animals[1] = "Monkey";
+
+print(animals);
 ```
 
 ### Few methods of List
@@ -275,7 +281,7 @@ In the above example elements in the list object are added into list2.
 
 ``` dart
 var list;
-var list2 = [0, ...list];
+var list2 = [0, ...?list];
 print(list2); //[0]
 ```
 In the above example elements in the list object are not added into list2 because it is null.
@@ -332,7 +338,7 @@ The above code fails because we cannot modify a constant list.
   animals = [];
   animals.add("Monkey");
 ```
-The above code works as we are assigning a new array to the *animals* variable. And the new array is not constant.
+The above code works as we are assigning a new list to the *animals* variable. And the new list is not constant.
 
 ``` dart
 const animals = ["Lion", "Tiger", "Elephant"];
@@ -342,3 +348,170 @@ animals = []; // Constant variables can't be assigned a value.
 ```
 In the above code we cannot modify the list and cannot assign a new array. Because both the variable and list are constants.
 
+## Set
+Set holds unordered collection of unique items.
+
+We can define Set using ***Constructor*** or ***set literal {}***.
+
+``` dart
+var set1 = <String>{};
+var set2 = <String>{"Lion", "Tiger", "Elephant"};
+var set3 = Set<String>();
+Set<String> set4 = {};
+```
+
+All the 4 variables in the above example are sets.
+
+
+## Few methods of set
+
+``` dart
+  var animals = <String>{"Lion", "Tiger", "Elephant"};
+
+  animals.add("Monkey"); //Adding a single element
+  print(animals);
+
+  animals.addAll(["Horse", "Donkey"]); // Adding multiple elements from array
+  print(animals);
+
+  animals.addAll({"Zebra", "Donkey"}); // Adding multiple elements from set
+  print(animals);
+
+  print(animals.isEmpty); // returns true if list is empty else returns false
+
+  print(animals.length); // returns length of the ste
+
+  print(animals);
+
+  print(animals.elementAt(2)); // returns element at the given index
+
+  animals.remove("Lion"); // Removes the given object if the element exist and returns true else it returns false
+  animals.remove(animals.elementAt(2));
+
+  print(animals);
+
+  animals.clear();
+  print(animals);
+```
+
+### Constant set
+
+``` dart
+var animals = const {"Lion", "Tiger", "Elephant"};
+animals.add("Monkey"); // Throws Unsupported operation: Cannot add to an unmodifiable set
+```
+The above code fails because we cannot modify a constant set.
+
+``` dart
+  var animals = const {"Lion", "Tiger", "Elephant"};
+
+  animals = {};
+  animals.add("Monkey");
+```
+The above code works as we are assigning a new set to the *animals* variable. And the new set is not constant.
+
+``` dart
+const animals = {"Lion", "Tiger", "Elephant"};
+
+animals.add("Monkey"); // Throws Unsupported operation: Cannot add to an unmodifiable set
+animals = {}; // Constant variables can't be assigned a value.
+```
+In the above code we cannot modify the list and cannot assign a new array. Because both the variable and the set are constants.
+
+
+## Maps
+Map stores data in ***key-value*** pairs. Both key and value can be of any data type. Each key occurs only once, but value can be repeated multiple types.
+
+A Map can be created using map literal or constructor.
+
+``` dart
+var map1 = {};
+var map2 = {
+  "name": "Soap",
+  "price": 12.5,
+  "quantity": 4,
+  "addedToCard": true
+};
+var map3 = <String, String>{};
+var map4 = Map<String, String>();
+Map<String, String> map5 = {};
+```
+All the 4 variables in the above example are maps.
+
+
+### Accessing elements of an Map
+We need to access elements of a map using key name and with literal ***[]***.
+
+``` dart
+var product = {
+  "name": "Soap",
+  "price": 12.5,
+  "quantity": 4,
+  "addedToCard": true
+};
+
+print(product["price"]); // returns value of price
+print(product["weight"]); // returns null as the key doesn't exist
+```
+
+### Adding and updating key-value pairs in a Map
+We have to use literal ***[]*** to add or update a key-value pair.
+
+``` dart
+var product = {
+  "name": "Soap",
+  "price": 12.5,
+  "quantity": 4,
+  "addedToCard": true
+};
+
+product["price"] = 15; // Updates value of price
+product["weight"] = "1kg"; // Adds a new key-value pairs for weight
+
+print(product);
+```
+
+### Few methods of map
+
+``` dart
+var product = {
+  "name": "Soap",
+  "price": 12.5,
+  "quantity": 4,
+  "addedToCard": true
+};
+
+print(product.isEmpty);
+print(product.isNotEmpty);
+print(product.length);
+print(product.keys);
+print(product.values);
+print(product.remove("quantity"));
+print(product);
+
+product.clear();
+print(product);
+```
+
+### Collection if and for on Maps
+
+``` dart
+const isWishlist = true;
+var listOfInts = [1, 2, 3];
+
+var product = {
+  "name": "Soap",
+  "price": 12.5,
+  "quantity": 4,
+  "addedToCard": true,
+  if (isWishlist) "isWishlist": true,
+  for (var i in listOfInts) '#$i': true
+};
+print(product);
+```
+
+## dynamic and Object
+
+Type dynamic has methods for every possible identifier, with every possible combination of named parameters. These methods all have dynamic as their return type.
+
+That means you will not get warnings by calling any method on a dynamic typed variable. That will not be the case with a variable typed as Object.
