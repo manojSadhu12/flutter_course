@@ -1,4 +1,3 @@
-<style>em{color: rgb(183, 157, 24) !important;}</style>
 # Introduction to Dart
 
 Dart is a Object Oriented programming language developed by Google.

@@ -1,4 +1,3 @@
-<style>em{color: rgb(183, 157, 24) !important;}</style>
 # Datatype in Dart
 
 DataType is the format (like number, text etc...) of data that a variable holds.

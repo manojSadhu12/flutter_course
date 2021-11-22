@@ -1,4 +1,3 @@
-<style>em{color: rgb(183, 157, 24) !important;}</style>
 # Dart Operators
 
 | Description              | Operator                                                                                                            |

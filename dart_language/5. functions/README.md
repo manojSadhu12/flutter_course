@@ -1,4 +1,3 @@
-<style>em{color: rgb(183, 157, 24) !important;}</style>
 # Dart Functions
 
 A function is a block of code (group of statements) that can do a specific task.
