@@ -1,8 +1,13 @@
-void sum(num num1, num num2, void callback(num result)) {
-  callback(num1 + num2);
-}
-Function greeting2 = (msg) => '!!! Hello $msg !!!';
+import 'dart:math' as Math;
 
 void main() {
-  sum(100, 200, print);
+  final product = {
+    "name": "Soap",
+    "price": 12.5,
+    "quantity": 4,
+    "addedToCard": true
+  };
+  for (var item in product.entries.where((element) => false)) {
+    print(item);
+  }
 }
