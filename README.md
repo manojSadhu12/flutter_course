@@ -2,10 +2,10 @@
 
 * [Introduction to Flutter (What and Why)](./notes/3.%20flutter/1.%20introduction/README.md)
 * [Introduction to Dart](./notes/2.%20dart_language)
-  * [Installing Dart SDK](./1.%20installation_and_setup/README.md)
+  * [Installing Dart SDK](./notes/1.%20installation_and_setup/README.md)
   * [Dart language tour](./notes/2.%20dart_language) (Dart VM, Includes various concepts of the language, syntax, packages, OOPs concept etc)
 * Setting up Flutter
-  * [Installing Flutter SDK](./1.%20installation_and_setup/README.md)
+  * [Installing Flutter SDK](./notes/1.%20installation_and_setup/README.md)
   * Creating a sample project
   * Flutter project file structure
   * Walk through to the default counter app
