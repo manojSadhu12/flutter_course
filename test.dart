@@ -1,6 +1,11 @@
 void main() {
-  final Iterable<String> animals = ["Lion", "Tiger", "Elephant"];
+  const items = ["Lion", "Tiger", "Elephant"];
 
-  final ddd = animals.where((it) => it.length >= 4);
-  print(ddd);
+  if (items.takeWhile((item) => item.contains('a'))) {
+    print('At least one item contains "a"');
+  }
+
+  if (items.every((item) => item.length >= 5)) {
+    print('All items have length >= 5');
+  }
 }

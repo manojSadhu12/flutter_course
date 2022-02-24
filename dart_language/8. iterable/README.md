@@ -47,3 +47,95 @@ iterable.forEach((element) => print(element));
 // (or)
 iterable.forEach(print);
 ```
+
+## Filtering an iterable
+
+We have multiple methods for filtering an iterable.
+
+### firstWhere()
+
+Returns the first element that satisfies the given predicate [test].
+
+Iterates through elements and returns the first to satisfy [test].
+
+If no element satisfies [test], the result of invoking the [orElse]
+function is returned.
+
+If [orElse] is omitted, it defaults to throwing a [StateError].
+
+**Syntax:** `E firstWhere(bool test(E element), {E orElse()?})`
+
+``` dart
+final Iterable<String> animals = ["Lion", "Tiger", "Elephant"];
+
+final animal = animals.firstWhere((it) => it.contains("e"));
+print(animal);
+```
+
+### lastWhere()
+
+Returns the last element that satisfies the given predicate [test].
+
+Iterates through elements and returns the last to satisfy [test].
+
+If no element satisfies [test], the result of invoking the [orElse]
+function is returned.
+
+If [orElse] is omitted, it defaults to throwing a [StateError].
+
+**Syntax:** `E lastWhere(bool test(E element), {E orElse()?})`
+
+``` dart
+final Iterable<String> animals = ["Lion", "Tiger", "Elephant"];
+
+final animal = animals.lastWhere((it) => it.contains("e"));
+print(animal);
+```
+
+### where()
+
+Returns all the elements that satisfies the given condition.
+
+**Syntax** `Iterable<E> where(bool test(E element)) => WhereIterable<E>(this, test)`
+
+``` dart
+final Iterable<String> animals = ["Lion", "Tiger", "Elephant"];
+
+final animal = animals.where((it) => it.contains("e"));
+print(animal);
+```
+### takeWhile() and skipWhile()
+***takeWhile()*** takes all the elements till the condition is matched and returns as a list.
+
+***skipWhile()*** skips all the elements till the condition is matched and returns remaining elements as a list.
+
+``` dart
+const numbers = [1, 3, -2, 0, 4, 5];
+
+var numbersUntilZero = numbers.takeWhile((number) => number != 0);
+print('Numbers until 0: $numbersUntilZero');
+
+var numbersStartingAtZero = numbers.skipWhile((number) => number != 0);
+print('Numbers starting at 0: $numbersStartingAtZero');
+```
+
+
+## any() and every()
+
+The Iterable class provides two methods that you can use to verify conditions:
+
+any(): Returns true if at least one element satisfies the condition.
+
+every(): Returns true if all elements satisfy the condition.
+
+``` dart
+const items = ["Lion", "Tiger", "Elephant"];
+
+if (items.any((item) => item.contains('a'))) {
+print('At least one item contains "a"');
+}
+
+if (items.every((item) => item.length >= 5)) {
+print('All items have length >= 5');
+}
+```
